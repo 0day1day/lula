@@ -1,8 +1,10 @@
 #!/bin/bash
 
-adduser --home /home/incoming/$1 $1
-addgroup $1 ftp-only
-ln /home/incoming/readme.txt /home/incoming/$1/readme.txt
-mkdir /home/incoming/$1/incoming
-chown root: /home/incoming/$1
-chown $1: /home/incoming/$1/incoming
+source lula.conf
+
+adduser --home "$ftp_incoming_dir"/$1 $1
+addgroup $1 $ftp_group
+ln "$ftp_incoming_dir"/readme.txt "$ftp_incoming_dir"/$1/readme.txt
+mkdir "$ftp_incoming_dir"/$1/incoming
+chown root: "$ftp_incoming_dir"/$1
+chown $1: "$ftp_incoming_dir"/$1/incoming

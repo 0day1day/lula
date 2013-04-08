@@ -80,4 +80,4 @@ done
 
 cd ..
 
-./save.sh
+./analyze.sh

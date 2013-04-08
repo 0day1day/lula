@@ -1,13 +1,17 @@
-requirements
-binutils rar unrar zip unzip bzip2 gzip tar apache2 exim4
+PRE-ALPHA VERSION
 
-apache on port 2010
-a2dismod autoindex
-a2dissite default default-ssl
-a2ensite lula
+lula is a malware sourcing system with
+analysis capabilities that runs on linux
 
 
+Requirements
 
-libjansson-dev
-wget http://kmkeen.com/jshon/jshon.tar.gz
-
+ binutils rar unrar zip unzip bzip2 gzip tar apache2 exim4
+ 
+ apache on port 2010
+ adismod autoindex
+ a2dissite default default-ssl
+ a2ensite lula
+ 
+ libjansson-dev
+ wget http://kmkeen.com/jshon/jshon.tar.gz
