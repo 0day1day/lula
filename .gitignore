@@ -1,0 +1,6 @@
+store/*
+ready/*
+temp/*
+*.csv
+reports/*
+*~

@@ -1,0 +1,13 @@
+requirements
+binutils rar unrar zip unzip bzip2 gzip tar apache2 exim4
+
+apache on port 2010
+a2dismod autoindex
+a2dissite default default-ssl
+a2ensite lula
+
+
+
+libjansson-dev
+wget http://kmkeen.com/jshon/jshon.tar.gz
+
