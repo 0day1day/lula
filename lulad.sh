@@ -29,7 +29,6 @@ while :; do
 	ls $internal_incoming_dir/* &>/dev/null
 	if [ $? -eq 0 -o $new_sample = true ]; then
 		mv "$internal_incoming_dir"/* "$internal_preparing_dir/" 2>/dev/null
-		mv "$internal_incoming_dir"/.* "$internal_preparing_dir/" 2>/dev/null
 		rm -rf "$internal_temporary_dir/*"
 		./extract.sh
 	fi
