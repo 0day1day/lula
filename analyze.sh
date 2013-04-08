@@ -3,9 +3,10 @@
 source lula.conf
 
 empty=false
+>"$temporary_database_file"
 
 echo '[+] removing old compressed files...'
-cd preparing
+cd "$internal_preparing_dir"
 rm -f *.zip *.tar *.tgz *.gz *.rar
 find . -type d ! -name '.' -exec rm -rf {} +; 2>&-
 cd ..
@@ -29,7 +30,7 @@ for i in $internal_preparing_dir/*; do
 
 	(echo -n "$(date),$sha,$(basename "$i"),"
 	wc -c "$i" | cut -d' ' -f1) | tee -a "$database_file" \
-	temp/db_temp.csv "$report" >/dev/null
+	"$temporary_database_file" "$report" >/dev/null
 
 	type=$(file "$i" | sed 's/.*: //')
 	echo "$type" >> "$report"

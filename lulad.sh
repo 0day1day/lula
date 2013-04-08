@@ -9,8 +9,6 @@ while :; do
 
 	new_sample=false
 	for i in $(find "$ftp_incoming_dir" -type f ! -name "*.txt"); do
-#	echo "$i"
-#	exit
 		while :; do
 			sha1=$(sha1sum "$i")
 			sleep 2
@@ -23,6 +21,8 @@ while :; do
 			cp -pu "$i" "$internal_store_dir"
 			mv "$i" "$internal_incoming_dir"
 			new_sample=true
+		else
+			rm "$i"
 		fi
 	done
 

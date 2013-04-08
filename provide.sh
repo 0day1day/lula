@@ -25,7 +25,7 @@ msg=" +++ The Lula Project +++
 
 We have received new samples. Here is the list:
 
-$(cat $internal_temporary_dir/db_temp.csv)
+$(cat "$temporary_database_file")
 
 Webservice submission response: $response
 Submission ID: $sn
@@ -34,14 +34,14 @@ Samples download:
 "$url" ("$size")
 
 Samples reports:
-$(for i in $(cut -d, -f2 "$internal_temporary_dir/db_temp.csv"); do
+$(for i in $(cut -d, -f2 "$temporary_database_file"); do
 	echo "http://"$external_fqdn:$external_port"/query.php?sha=$i"
 done)
 
 Have a nice day!"
 
 if $notify; then
-	echo "$msg" | mail -s "$subject" $(echo ${notification_addresses[*]} | tr ' ' ,)
+	echo "$msg" | mail -s "$subject" $(echo ${notify_addresses[*]} | tr ' ' ,)
 else
 	echo "$msg"
 fi

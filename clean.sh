@@ -1,5 +1,6 @@
 #!/bin/bash
 
-rm -rf preparing/* processing/* db.csv temp/db_temp.csv
+rm -rf "$internal_preparing_dir/*" "$internal_processing_dir/*" "$database_file" "$temporary_database_file"
 
-[ "$1" = "--full" ] && rm -rf ready/* store/* reports/* 
+[ "$1" = "--full" ] && rm -rf "$internal_ready_dir/*" \
+"$internal_store_dir/*" "$internal_reports_dir/*"

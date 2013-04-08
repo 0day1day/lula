@@ -80,7 +80,7 @@ esac
 [ -d $internal_store_dir ] || mkdir -p "$internal_store_dir"
 [ -d $internal_preparing_dir ] || mkdir -p "$internal_preparing_dir" 
 
-for i in /sbin/ss grep mail rar unrar zip unzip tar gunzip bunzip2; do
+for i in /sbin/ss grep pescan jshon mail rar unrar zip unzip tar gunzip bunzip2; do
 	which "$i" >/dev/null || exit
 done
 
