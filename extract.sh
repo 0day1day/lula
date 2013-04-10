@@ -61,6 +61,7 @@ function move_f {
 		else
 			mv "$i" .
 		fi
+		rmdir * 2> /dev/null
 	done
 }
 
