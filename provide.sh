@@ -3,23 +3,24 @@
 source lula.conf
 
 submission_error=false
-file=$(ls $internal_processing_dir/)
-size=$(ls -lh $internal_processing_dir/$file | cut -d' ' -f5)
+file=$(ls "$internal_processing_dir/")
+size=$(ls -lh "$internal_processing_dir/$file" | cut -d' ' -f5)
 url="http://$external_fqdn:$external_port/$file"
 body=$(mktemp)
 
-[ -f $internal_processing_dir/"$file" ] || exit
+[ -f "$internal_processing_dir/$file" ] || exit
 
 subject='New samples submitted'
 
 if $submit_webservice; then
-	response=$(curl -o $body -sw '%{http_code}' --form "$webservice_file_field=@$internal_processing_dir/$file" "$submit_url")
+	response=$(curl -o $body -sw '%{http_code}' --form \
+	"$webservice_file_field=@$internal_processing_dir/$file" "$webservice_url")
 
 	sn=$(grep -oE '2[0-9]+' $body)
 	rm -f $body
 fi
 
-mv $internal_processing_dir/"$file" $internal_ready_dir/
+mv "$internal_processing_dir/$file" "$internal_ready_dir/"
 
 msg=" +++ The Lula Project +++
 
